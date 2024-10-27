@@ -1,11 +1,11 @@
 FROM node:16-alpine AS build
 WORKDIR /usr/src/app
 
-ARG APIURL
-ENV APIURL ${APIURL}
+ENV APIURL="http://34.222.136.233:80"
 
 COPY . .
 
+RUN echo "export const environment = {production: true, apiurl: '${APIURL}'};" > /usr/src/app/src/environments/environment.ts
 RUN echo "export const environment = {production: true, apiurl: '${APIURL}'};" > /usr/src/app/src/environments/environment.prod.ts
 
 RUN npm install
