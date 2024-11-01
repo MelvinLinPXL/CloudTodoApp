@@ -4,7 +4,7 @@ const aws = require('./../aws');
 const carrouselRouter = express.Router();
 const carrouselData = require('./../data/carrousel.json');
 
-const s3 = new AWS.S3();
+const s3 = new aws.S3();
 const BUCKET_NAME = 'pxl-mel-pe2-s3-bucket';
 
 // Function to fetch images from S3 bucket
