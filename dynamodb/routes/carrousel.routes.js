@@ -1,10 +1,10 @@
 const express = require('express');
-const aws = require('./../aws');
-
+const AWS = require('aws-sdk');
+AWS.config.update({region: process.env.AWS_REGION});
 const carrouselRouter = express.Router();
 const carrouselData = require('./../data/carrousel.json');
 
-const s3 = new aws.S3();
+const s3 = new AWS.S3();
 const BUCKET_NAME = process.env.BUCKET_NAME;
 
 // Function to fetch images from S3 bucket
